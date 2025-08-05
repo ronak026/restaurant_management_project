@@ -1,5 +1,5 @@
 from django.contrib import admin
-from products.models import Item
+from .models import Item
 
 # Custom Admins
 @admin.register(Item)
