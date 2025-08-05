@@ -7,7 +7,7 @@ class Item(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.item_name)
+        return self.item_name
 
 # class Menu(models.Model):
 #     name = models.CharField(max_length=255)
