@@ -2,8 +2,18 @@
     <head>
         <title>Restaurant Menu </title>
     </head>
+
     <body>
-        <h1>Restaurant Menu</h1>
-        
+        <h1>Menu</h1>
+        <ul>
+            {% for item in menu_items %}
+                <li>
+                    <strong>{{ item.name }} </strong> - Rs. {{item.price}}<br>
+                    <em>{{item.descripation}}</em>
+                </li>
+            {% empty %}
+                <li>No menu items found.</li>
+            {% emdfor %}
+        </ul>
     </body>
 </html>
