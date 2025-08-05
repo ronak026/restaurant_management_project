@@ -9,10 +9,12 @@
             {% for item in menu_items %}
                 <li>
                     <strong>{{ item.name }} </strong> - Rs. {{item.price}}<br>
-                    <em>{{item.descripation}}</em>
+                    <em>{{item.description}}</em>
                 </li>
+                
             {% empty %}
                 <li>No menu items found.</li>
+
             {% endfor %}
         </ul>
     </body>
