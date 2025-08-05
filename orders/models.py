@@ -4,7 +4,6 @@ from Products.models import Menu
 
 # Create your models here.
 
-
 class Order(models.Model):
     STATUS_CHOICES  = [
         ('PENDING', 'pending'),
