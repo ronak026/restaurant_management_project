@@ -25,11 +25,11 @@ class ItemView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class MenuView(APIView):
+class MenuAPIView(APIView):
     def get(self, request):
         menu = [
             {"name":"Margherita Pizza", "description":"Classic pizza with cheese and tomato." "price":169},
             {"name":"Caesar Salad", "description":"Romaine with caesar dressing and caroutons." "price":360},
-            {"name":"Spaghetti Carbonara", "description":"Pasta with bacon, cheese, and egg sauce." "price":250},
+            {"name":"Spaghetti Carbonara", "description":"Pasta with bacon, cheese, and egg sauce." "price":250}
         ]
         return Response(menu, status=status.HTTP_200_OK)
