@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from Products.models import Menu
 
 # Create your models here.
 
@@ -11,12 +12,18 @@ class Order(models.Model):
         ('COMPLETED', 'completed'),
         ('CANCELED', 'canceled'),
     ]
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders') #Link to User
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
     created_at = models.DateTimeField(auto_now_add=True)
-
-class OrderItem(models.Model):
     
     def __str__(self):
         return f"Order #{self.id} - {self.customer.username}"
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='item') #Link to Order Models
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE) #Link To Menu Model
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantity} x {self.menu.name}"
