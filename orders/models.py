@@ -20,7 +20,7 @@ class Order(models.Model):
         return f"Order #{self.id} - {self.customer.username}"
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='item') #Link to Order Models
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items') #Link to Order Models
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE) #Link To Menu Model
     quantity = models.PositiveIntegerField(default=1)
 
