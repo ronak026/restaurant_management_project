@@ -9,7 +9,7 @@ class OrderItemInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id','customer','status','total_amount','created_at')
     list_filter = ('status', 'created_at')
-    search_fields = ('customer__username')
+    search_fields = ('customer__username',)
     inlines = [OrderItemInline]
 
 admin.site.register(Order, OrderAdmin)
