@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from Products.models import Menu
+from Products.models import Item
 
 # Create your models here.
 
@@ -21,7 +21,7 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items') #Link to Order Models
-    menu = models.ForeignKey(Menu, on_delete=models.CASCADE) #Link To Menu Model
+    menu = models.ForeignKey(Item, on_delete=models.CASCADE) #Link To Menu Model
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
