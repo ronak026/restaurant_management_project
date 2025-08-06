@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def homepage(request):
-    response = requests.get('http://localhost:8000/api/menu/')
+    response = request.get('http://localhost:8000/api/menu/')
     menu_items = response.json() if response.status_code == 200 else []
 
-    return render(request, 'home.html', {'menu_items':menu_items})
+    return render(request, 'menu.html', {'menu_items':menu_items})
