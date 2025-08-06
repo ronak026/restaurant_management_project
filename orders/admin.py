@@ -13,4 +13,3 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('customer__username',)
     inlines = [OrderItemInline]
 
-# admin.site.register(Order, OrderAdmin)
